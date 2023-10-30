@@ -291,17 +291,17 @@ function Register() {
         >
           Register
         </Button>
-        <ButtonReact
-          sx={{ marginTop: "0.5rem", fontWeight: "bold" }}
-          color="success"
-          variant="text"
-          onClick={() => {
-            navigate("/login");
-          }}
-        >
-          Already Registerd?
-        </ButtonReact>
       </Form>
+      <ButtonReact
+        sx={{ marginTop: "0.5rem" }}
+        color="success"
+        variant="text"
+        onClick={() => {
+          navigate("/login");
+        }}
+      >
+        Already Registerd?
+      </ButtonReact>
     </div>
   );
 }

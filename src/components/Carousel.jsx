@@ -17,8 +17,8 @@ function CarouselComponent(props) {
               className="carousel-texts"
               style={{ position: "absolute", top: "-20rem" }}
             >
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>{props.h1}</h3>
+              <p>{props.p1}</p>
             </div>
           </Carousel.Caption>
         </Carousel.Item>
@@ -35,13 +35,13 @@ function CarouselComponent(props) {
               className="carousel-texts"
               style={{ position: "absolute", top: "-20rem" }}
             >
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>{props.h2}</h3>
+              <p>{props.p2}</p>
             </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="carousel-img" style={{ position: "relative" }}>
+          <div className="carousel-img" style={{ position: "relative",  }}>
             <img
               className="d-block w-100 img-3"
               src={props.img3}
@@ -53,9 +53,9 @@ function CarouselComponent(props) {
               className="carousel-texts"
               style={{ position: "absolute", top: "-20rem" }}
             >
-              <h3>Third slide label</h3>
+              <h3>{props.h3}</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                {props.p3}
               </p>
             </div>
           </Carousel.Caption>

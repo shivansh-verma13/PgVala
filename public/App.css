@@ -1,11 +1,26 @@
 * {
   font-family: 'Josefin Sans', sans-serif;
-
 }
 
-/* .App::-webkit-scrollbar{
-  display: none;
-} */
+@media (min-width: 768px) {
+  body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #root {
+    width: 375px;
+    height: auto;
+    border: 1px solid #000;
+  }
+
+  .footer-nav {
+    width: 375px !important;
+  }
+}
 
 .carousel {
   margin-top: 0rem;
@@ -27,11 +42,9 @@
   color: #FFE17B
 }
 
-.img-1,
-.img-2,
-.img-3 {
+.img {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -85,6 +98,17 @@
   margin: 0;
 }
 
+.owner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
 
 .card-img1,
 .card-img2,
@@ -99,7 +123,7 @@
   flex-direction: column;
 }
 
-.input-tag{
+.input-tag {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -166,7 +190,7 @@
   padding-bottom: 2rem;
 }
 
-.reviews::-webkit-scrollbar{
+.reviews::-webkit-scrollbar {
   display: none;
 }
 
@@ -175,7 +199,7 @@
   height: 50%;
 }
 
-.more-reviews{
+.more-reviews {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -183,7 +207,7 @@
   gap: 0.5rem;
 }
 
-.more-reviews > div {
+.more-reviews>div {
   width: 12px;
   height: 12px;
   background-color: red;
@@ -191,9 +215,9 @@
   box-shadow: 1px 1px 5px #000;
 }
 
-.onboarding{
+.onboarding {
   margin-top: -3.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
   text-align: center;
   width: 100%;
   display: flex;
@@ -201,13 +225,13 @@
   justify-content: center;
 }
 
-.onboarding-buttons{
+.onboarding-buttons {
   display: flex;
   justify-content: center;
   gap: 35px;
 }
 
-.booking-card{
+.booking-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,24 +239,24 @@
   align-items: center;
 }
 
-.booker > h6{
+.booker>h6 {
   font-weight: bold;
   font-size: 1.5rem;
 }
 
-.booker-details{
+.booker-details {
   display: flex;
   flex-direction: column;
 }
 
-.bookings{
+.bookings {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.rating-review{
+.rating-review {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,7 +266,7 @@
   margin-top: 2rem;
 }
 
-.review-form{
+.review-form {
   position: relative;
   border-radius: 25px;
   padding: 2rem;
@@ -260,7 +284,8 @@
 .date-picker-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #333; /* Title text color */
+  color: #333;
+  /* Title text color */
 }
 
 .date-picker-input {
@@ -269,12 +294,14 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px;
+  /* Adjust the width as needed */
 }
 
 .date-picker-input:hover,
 .date-picker-input:focus {
-  border-color: #007bff; /* Highlight border color on hover and focus */
+  border-color: #007bff;
+  /* Highlight border color on hover and focus */
 }
 
 .react-datepicker {
@@ -314,6 +341,7 @@
   background-color: #007bff;
   color: #fff;
 }
+
 /* TimePicker.css */
 
 .time-picker-container {
@@ -326,7 +354,8 @@
 .time-picker-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #333; /* Title text color */
+  color: #333;
+  /* Title text color */
 }
 
 .time-picker-input {
@@ -335,24 +364,27 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px;
+  /* Adjust the width as needed */
 }
 
 .time-picker-input:hover,
 .time-picker-input:focus {
-  border-color: #007bff; /* Highlight border color on hover and focus */
+  border-color: #007bff;
+  /* Highlight border color on hover and focus */
 }
 
 .react-time-picker {
   font-family: Arial, sans-serif;
   background-color: #fff;
-  border: 1px solid #ccc; 
-   border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .react-time-picker__clock {
-  display: none; /* Hide the clock view */
+  display: none;
+  /* Hide the clock view */
 }
 
 .react-time-picker__inputGroup {
@@ -368,14 +400,16 @@
 }
 
 .react-time-picker__clear-button {
-  display: none; /* Hide the clear button */
+  display: none;
+  /* Hide the clear button */
 }
 
 .react-time-picker__button:disabled {
-  opacity: 0.5; /* Reduce opacity for disabled button */
+  opacity: 0.5;
+  /* Reduce opacity for disabled button */
 }
 
-.owner-input{
+.owner-input {
   display: flex;
   flex-direction: column;
   justify-content: center;

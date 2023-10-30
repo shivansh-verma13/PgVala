@@ -67,7 +67,7 @@ function RatingAndReview() {
               position: "absolute",
               bottom: "0.5rem",
               right: "4.5rem",
-              fontSize: "2.5rem"
+              fontSize: "2.5rem",
             }}
             aria-label="add"
           >
@@ -94,9 +94,9 @@ function RatingAndReview() {
           }}
           className="reviews"
         >
-          <Review />
-          <Review />
-          <Review />
+          <Review content="I recently used this PG website to find accommodation, and I'm extremely satisfied with the service. It was so easy to filter options, and I found the perfect PG that suits my needs. The website's interface is user-friendly and helped me save a lot of time" />
+          <Review content="I highly recommend this PG website to anyone searching for hassle-free accommodation. The listings are up-to-date, and the detailed descriptions and photos gave me a clear idea of what to expect. It made my PG hunting experience stress-free." />
+          <Review content="Finding a safe and comfortable PG can be a challenge, but this website made it a breeze. The verification and reviews for each listing provide peace of mind. I'm grateful for this platform, as it helped me find the ideal PG." />
         </div>
       </div>
     </div>

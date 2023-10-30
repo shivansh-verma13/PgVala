@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function OwnerLogin() {
   const [isClicked, setClicked] = React.useState(true);
   const [isLoggedIn, setLoggedIn] = React.useState(false);
   const [validated, setValidated] = React.useState(false);
@@ -30,7 +30,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        `https://davaivala.shop/resend_otp?contact=${contactDetails}&user_type=user`,
+        `https://davaivala.shop/resend_otp?contact=${contactDetails}&user_type=landlord`,
         {
           headers: {
             Accept: "application/json",
@@ -60,7 +60,7 @@ function Login() {
           {
             contact: contactDetails,
             otp: otp,
-            user_type: "user",
+            user_type: "landlord",
           },
           {
             headers: {
@@ -69,12 +69,12 @@ function Login() {
             },
           }
         );
-        const token = response.data.access_token;
-        console.log("API response: ", token);
-        // Store the token in local storage
-        localStorage.setItem("token", token);
+        const ownerToken = response.data.access_token;
+        console.log("API response: ", ownerToken);
+        // Store the ownerToken in local storage
+        localStorage.setItem("ownerToken", ownerToken);
 
-        navigate("/");
+        navigate("/accommodationlist");
       } catch (error) {
         if (error.response) {
           // Server returned a response with an error status code
@@ -106,7 +106,7 @@ function Login() {
           ? "You have been successfully logged in!"
           : "Please try again, and put the correct OTP!"}
       </Alert>
-      <h3>Login</h3>
+      <h3>Owner Login</h3>
       <Form noValidate validated={validated} onSubmit={handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicContact">
           <Form.Label>Contact Details</Form.Label>
@@ -191,4 +191,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default OwnerLogin;

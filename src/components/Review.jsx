@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import StaticRating from "./StaticRating";
 
-function Review() {
+function Review(props) {
   return (
     <div className="review">
       <Card sx={{ maxWidth: "100%", maxHeight: "50%" }}>
         <CardHeader
-            sx={{display: "flex", flexDirection: "row"}}
+          sx={{ display: "flex", flexDirection: "row" }}
           avatar={
             <Avatar
               sx={{
@@ -29,9 +29,7 @@ function Review() {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {props.content}
           </Typography>
         </CardContent>
       </Card>

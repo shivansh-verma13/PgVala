@@ -6,26 +6,21 @@ import FooterNav from "./FooterNav";
 import Cards from "./Cards";
 import Register from "./Register";
 import Login from "./Login";
+import OwnerLogin from "./OwnerLogin";
 import Bookings from "./Bookings";
 import RatingAndReview from "./RatingAndReview";
 import AccommodationLists from "./AccommodationLists";
-import RoomInputOwner from "./RoomInputOwner";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import OwnerBookingSchedules from "./OwnerBookingSchedules";
 import Error from "./Error";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CompletePaymentStatus from "./CompletePaytmentStatus";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <NavigationBar />
-        {/* <MainLandingPage /> */}
-        {/* <Cards /> */}
-        {/* <AccommodationLists /> */}
-        {/* <RoomInputOwner /> */}
-        {/* <Bookings /> */}
-        {/* <RatingAndReview />  */}
-        {/* <Register /> */}
-        {/* <Login /> */}
         <FooterNav />
       </div>
       <Routes>
@@ -36,7 +31,32 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/ratingandreview" element={<RatingAndReview />} />
         <Route path="/accommodationlist" element={<AccommodationLists />} />
-        <Route path="/roominputowner" element={<RoomInputOwner />} />
+        <Route
+          path="/roominputowner"
+          element={
+            <div
+              style={{
+                fontWeight: "bold",
+                fontSize: "3rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "85vh",
+                width: "100%",
+              }}
+            >
+              <ConstructionIcon sx={{fontSize: "5rem", color: "red"}}/>
+              COMING <span style={{ color: "red" }}>SOON...</span>
+            </div>
+          }
+        />
+        <Route path="/ownerlogin" element={<OwnerLogin />} />
+        <Route
+          path="/ownerbookingschedule"
+          element={<OwnerBookingSchedules />}
+        />
+        <Route path="/ownerpaymentstatus" element={<CompletePaymentStatus />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

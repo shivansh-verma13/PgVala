@@ -4,20 +4,32 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
+import axios from "axios";
 
 function Search() {
-  const top10Cities = [
-    "Bhilai",
-    "Jaipur",
-    "Kota",
-    "Patna",
-    "Varanasi",
-    "Kanpur",
-    "Bhopal",
-    "Indore",
-    "Bhubaneswar",
-    "Kolkata",
-  ];
+  const token = localStorage.getItem("token");
+  const [topCities, setTopCities] = React.useState([]);
+
+  React.useEffect(() => {
+    async function getCityList() {
+      try {
+        const response = await axios.get(
+          "https://davaivala.shop/get_city_list/",
+          {
+            headers: {
+              Accept: "application/json",
+            },
+          }
+        );
+        const cities = response.data;
+        const cityNames = cities.map((city) => city.city_name);
+        setTopCities(cityNames);
+      } catch (error) {
+        console.error("Error in getting the list of cities: ", error.message);
+      }
+    }
+    getCityList();
+  }, []);
 
   const [selectedCity, setSelectedCity] = React.useState(null);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -25,12 +37,17 @@ function Search() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!selectedCity) {
-      // Show the error modal if no city is selected
-      setIsModalOpen(true);
+    if (token) {
+      if (!selectedCity) {
+        // Show the error modal if no city is selected
+        setIsModalOpen(true);
+      } else {
+        // Handle form submission or redirection here
+        localStorage.setItem("selectedCity", selectedCity);
+        navigate("/searchedcity");
+      }
     } else {
-      // Handle form submission or redirection here
-      navigate("/searchedcity");
+      navigate("/register");
     }
   };
 
@@ -45,7 +62,7 @@ function Search() {
           disablePortal
           size="small"
           id="combo-box-demo"
-          options={top10Cities}
+          options={topCities}
           sx={{
             width: "80%",
             backgroundColor: "#fff",
@@ -59,13 +76,13 @@ function Search() {
             <TextField
               required
               {...params}
-              sx={{ borderRadius: "50px" }}
+              sx={{ borderRadius: "50px",}}
               label="City"
               placeholder="Search by City"
             />
           )}
         />
-        <Button variant="danger" type="submit" style={{ borderRadius: "50px" }}>
+        <Button variant="dark" type="submit" style={{ borderRadius: "50px" }}>
           Search
         </Button>{" "}
       </div>

@@ -5,18 +5,23 @@ import LandingSection from "./LandingSection";
 import Reviews from "./Reviews";
 import OnBoarding from "./OnBoarding";
 
-import personImg from "../assets/images/person.jpg";
-import buildingImg from "../assets/images/building.jpg";
-import roomImg from "../assets/images/room.jpg";
+
+import img1 from "../assets/images/home1-img.jpg";
+import img2 from "../assets/images/home2-img.jpg";
+import img3 from "../assets/images/home3-img.jpg";
+import InstallButton from "./InstallButton";
 
 function MainLandingPage() {
+  
+
   return (
     <div>
-      <CarouselComponent img1={personImg} img2={buildingImg} img3={roomImg} />
+      <CarouselComponent img1={img1} img2={img2} img3={img3} />
       <Search />
       <LandingSection />
       <Reviews />
       <OnBoarding />
+      <InstallButton />
     </div>
   );
 }

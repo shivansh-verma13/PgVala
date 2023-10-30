@@ -18,9 +18,9 @@ function Reviews() {
         What do customers have to say about us?
       </h6>
       <div className="reviews">
-        <Review />
-        <Review />
-        <Review />
+        <Review content="Great selection of PG accommodations at various price ranges. The website offers a variety of filters, which made it easy for me to find a PG in my preferred location and within my budget. I had a seamless experience using this platform." />
+        <Review content="I'm new to the city, and this PG website was a lifesaver. It connected me with trustworthy PG options, and I was able to make an informed decision. I appreciate the transparency and accuracy of the information provided" />
+        <Review content="The website's mobile app is convenient and made my PG search convenient while on the go. The real-time notifications for new listings and updates are a bonus. I found my perfect PG within a few days, thanks to this platform." />
         <div
           style={{
             display: "flex",

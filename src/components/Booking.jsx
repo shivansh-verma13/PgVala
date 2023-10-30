@@ -80,6 +80,7 @@ export default function Booking(props) {
       console.log("API response: ", response.data.status);
       // Update the booking status in the state
       setBookingStatus("cancelled");
+      localStorage.setItem(`bookingStatus_${props.entery_id}`, "cancelled");
       navigate("/bookings");
     } catch (error) {
       console.error("Failed to cancel your visit: ", error.message);
@@ -93,129 +94,131 @@ export default function Booking(props) {
   }
 
   return (
-    <div
-      className="booking-card"
-      style={{
-        marginTop: "2rem",
-        marginBottom: "-1rem",
-        border: "none",
-        width: "95%",
-        display: bookingStatus === "cancelled" ? "none" : "block",
-      }}
-    >
-      <Card
-        sx={{
-          maxWidth: "100%",
-          borderRadius: "25px",
-          padding: "0.5rem",
+    bookingStatus !== "cancelled" && (
+      <div
+        className="booking-card"
+        style={{
+          marginTop: "2rem",
+          marginBottom: "-1rem",
+          border: "none",
+          width: "95%",
+          display: bookingStatus === "cancelled" ? "none" : "block",
         }}
       >
-        <CardHeader
-          action={
-            <Button
-              sx={{ marginLeft: "2rem", borderRadius: "25px" }}
-              color="error"
-              variant="contained"
-              aria-label="cancel-button"
-              onClick={handleCancelVisit}
-            >
-              Cancel
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginBottom: "1rem",
-                }}
+        <Card
+          sx={{
+            maxWidth: "100%",
+            borderRadius: "25px",
+            padding: "0.5rem",
+          }}
+        >
+          <CardHeader
+            action={
+              <Button
+                sx={{ marginLeft: "2rem", borderRadius: "25px" }}
+                color="error"
+                variant="contained"
+                aria-label="cancel-button"
+                onClick={handleCancelVisit}
               >
-                <CircularProgress
+                Cancel
+                <Box
                   sx={{
-                    color: "#fff",
-                    marginTop: "0.5rem",
-                    marginLeft: "1rem",
-                    marginBottom: "0.5rem",
-                    display: isDisabledLoader ? "block" : "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginBottom: "1rem",
                   }}
-                />
-              </Box>
-            </Button>
-          }
-          title={formattedBookingDate}
-          subheader={formattedTime}
-        />
-        <CardContent style={{ borderTop: "1px solid #B4B4B3" }}>
-          <Box variant="body2" color="text.secondary">
-            <div className="booker">
-              <div className="booker-details">
-                <h5 style={{ marginBottom: "1rem", fontWeight: "bold" }}>
-                  <BadgeIcon
-                    color="error"
-                    sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
-                  />
-                  <span style={{ color: "#000" }}>Owner Name:</span>{" "}
-                  {props.owner_name}
-                </h5>
-                <a
-                  href={`tel:${props.contact1}`}
-                  style={{ textDecoration: "none" }}
                 >
-                  <p style={{ marginTop: "-0.2rem", fontWeight: "bold" }}>
-                    <CallIcon
+                  <CircularProgress
+                    sx={{
+                      color: "#fff",
+                      marginTop: "0.5rem",
+                      marginLeft: "1rem",
+                      marginBottom: "0.5rem",
+                      display: isDisabledLoader ? "block" : "none",
+                    }}
+                  />
+                </Box>
+              </Button>
+            }
+            title={formattedBookingDate}
+            subheader={formattedTime}
+          />
+          <CardContent style={{ borderTop: "1px solid #B4B4B3" }}>
+            <Box variant="body2" color="text.secondary">
+              <div className="booker">
+                <div className="booker-details">
+                  <h5 style={{ marginBottom: "1rem", fontWeight: "bold" }}>
+                    <BadgeIcon
                       color="error"
                       sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
                     />
-                    <span style={{ color: "#000" }}>Contact:</span>{" "}
-                    {props.contact1}
-                  </p>
-                </a>
-                <a
-                  href={`tel:${props.contact2}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <p style={{ marginTop: "-0.8rem", fontWeight: "bold" }}>
-                    <CallIcon
+                    <span style={{ color: "#000" }}>Owner Name:</span>{" "}
+                    {props.owner_name}
+                  </h5>
+                  <a
+                    href={`tel:${props.contact1}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p style={{ marginTop: "-0.2rem", fontWeight: "bold" }}>
+                      <CallIcon
+                        color="error"
+                        sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
+                      />
+                      <span style={{ color: "#000" }}>Contact:</span>{" "}
+                      {props.contact1}
+                    </p>
+                  </a>
+                  <a
+                    href={`tel:${props.contact2}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <p style={{ marginTop: "-0.8rem", fontWeight: "bold" }}>
+                      <CallIcon
+                        color="error"
+                        sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
+                      />
+                      <span style={{ color: "#000" }}>Contact:</span>{" "}
+                      {props.contact2}
+                    </p>
+                  </a>
+                  <p style={{ marginTop: "1rem", fontWeight: "bold" }}>
+                    <LocationCityIcon
                       color="error"
                       sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
                     />
-                    <span style={{ color: "#000" }}>Contact:</span>{" "}
-                    {props.contact2}
+                    <span style={{ color: "#000" }}>Apartment:</span>{" "}
+                    {props.apartment_name}
                   </p>
-                </a>
-                <p style={{ marginTop: "1rem", fontWeight: "bold" }}>
-                  <LocationCityIcon
-                    color="error"
-                    sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
-                  />
-                  <span style={{ color: "#000" }}>Apartment:</span>{" "}
-                  {props.apartment_name}
-                </p>
-                <p style={{ marginTop: "-1rem", fontWeight: "bold" }}>
-                  <LocationOnIcon
-                    color="error"
-                    sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
-                  />
-                  <span style={{ color: "#000" }}>Address:</span>{" "}
-                  {props.address}
-                </p>
-                <p style={{ marginTop: "-1rem", fontWeight: "bold" }}>
-                  {props.locality}
-                </p>
+                  <p style={{ marginTop: "-1rem", fontWeight: "bold" }}>
+                    <LocationOnIcon
+                      color="error"
+                      sx={{ marginBottom: "0.4rem", marginRight: "0.2rem" }}
+                    />
+                    <span style={{ color: "#000" }}>Address:</span>{" "}
+                    {props.address}
+                  </p>
+                  <p style={{ marginTop: "-1rem", fontWeight: "bold" }}>
+                    {props.locality}
+                  </p>
+                </div>
               </div>
-            </div>
-            <Button
-              variant="contained"
-              color="error"
-              size="small"
-              sx={{ borderRadius: "15px" }}
-              startIcon={<DirectionsIcon />}
-              onClick={handleLocation}
-            >
-              Get Direction
-            </Button>
-          </Box>
-        </CardContent>
-      </Card>
-    </div>
+              <Button
+                variant="contained"
+                color="error"
+                size="small"
+                sx={{ borderRadius: "15px" }}
+                startIcon={<DirectionsIcon />}
+                onClick={handleLocation}
+              >
+                Get Direction
+              </Button>
+            </Box>
+          </CardContent>
+        </Card>
+      </div>
+    )
   );
 }

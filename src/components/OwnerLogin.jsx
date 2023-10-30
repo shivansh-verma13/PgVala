@@ -11,6 +11,7 @@ function OwnerLogin() {
   const [isClicked, setClicked] = React.useState(true);
   const [isLoggedIn, setLoggedIn] = React.useState(false);
   const [validated, setValidated] = React.useState(false);
+  const [isHidden, setHidden] = React.useState(true);
   const [contactDetails, setContactDetails] = React.useState("");
   const [isDisabledLoader, setDisabledLoader] = React.useState(false);
   const [isDisabledLoaderLogin, setDisabledLoaderLogin] = React.useState(false);
@@ -163,6 +164,31 @@ function OwnerLogin() {
             *OTP is required
           </Form.Control.Feedback>
         </Form.Group>
+        <Button
+          variant="text"
+          color="success"
+          onClick={async () => {
+            try {
+              const response = await axios.post(
+                `https://davaivala.shop/resend_otp?contact=${contactDetails}&user_type=user`,
+                {
+                  headers: {
+                    Accept: "application/json",
+                  },
+                }
+              );
+              console.log("API response: ", response.data.message);
+            } catch (error) {
+              console.error("Failed to make a request: ", error.message);
+            }
+            setHidden(false);
+          }}
+        >
+          Resend OPT?
+        </Button>
+        <p style={{ display: isHidden ? "none" : "block" }}>
+          *OTP has been resent
+        </p>
         <Button
           variant="danger"
           type="submit"

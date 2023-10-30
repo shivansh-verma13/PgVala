@@ -295,6 +295,9 @@ function Register() {
           sx={{ marginTop: "0.5rem", fontWeight: "bold" }}
           color="success"
           variant="text"
+          onClick={() => {
+            navigate("/login");
+          }}
         >
           Already Registerd?
         </ButtonReact>

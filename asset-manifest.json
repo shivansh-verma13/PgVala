@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PgVala/static/css/main.eefc237f.css",
-    "main.js": "/PgVala/static/js/main.f05a02ec.js",
+    "main.js": "/PgVala/static/js/main.5e51f367.js",
     "static/media/home1-img.jpg": "/PgVala/static/media/home1-img.9fdc1bfe65518f220ffb.jpg",
     "static/media/home2-img.jpg": "/PgVala/static/media/home2-img.2f466d03e30260e0e4f0.jpg",
     "static/media/home3-img.jpg": "/PgVala/static/media/home3-img.422f5992983f92fc9270.jpg",
@@ -9,10 +9,10 @@
     "static/media/logo-2.jpeg": "/PgVala/static/media/logo-2.5d1cb89bf0750294b929.jpeg",
     "index.html": "/PgVala/index.html",
     "main.eefc237f.css.map": "/PgVala/static/css/main.eefc237f.css.map",
-    "main.f05a02ec.js.map": "/PgVala/static/js/main.f05a02ec.js.map"
+    "main.5e51f367.js.map": "/PgVala/static/js/main.5e51f367.js.map"
   },
   "entrypoints": [
     "static/css/main.eefc237f.css",
-    "static/js/main.f05a02ec.js"
+    "static/js/main.5e51f367.js"
   ]
 }

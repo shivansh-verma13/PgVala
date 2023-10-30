@@ -442,7 +442,7 @@ export default function AccomodationList(props) {
             >
               <Typography>Updating...</Typography>
             </Box>
-            <EditDrawer />
+            <EditDrawer roomid={props.roomid} />
           </Box>
         </CardContent>
       </Card>

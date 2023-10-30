@@ -32,7 +32,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function EditDrawer() {
+export default function EditDrawer(props) {
   const ownerToken = localStorage.getItem("ownerToken");
   const [state, setState] = React.useState({
     bottom: false,
@@ -77,14 +77,15 @@ export default function EditDrawer() {
     setValidatedRent(true);
     try {
       const response = await axios.put(
-        "https://davaivala.shop/room_detail_update/?roomid=acc06Rm01&field=rent_price&value=" +
+        "https://davaivala.shop/room_detail_update/?roomid=" +
+          props.roomid +
+          "&field=rent_price&value=" +
           rentPrice,
         null,
         {
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + ownerToken,
-            
           },
         }
       );
@@ -108,14 +109,15 @@ export default function EditDrawer() {
     setValidatedTenant(true);
     try {
       const response = await axios.put(
-        "https://davaivala.shop/room_detail_update/?roomid=acc06Rm01&field=tenant&value=" +
+        "https://davaivala.shop/room_detail_update/?roomid=" +
+          props.roomid +
+          "&field=tenant&value=" +
           tenantType,
         null,
         {
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + ownerToken,
-            
           },
         }
       );
@@ -139,14 +141,15 @@ export default function EditDrawer() {
     setValidatedFurnishing(true);
     try {
       const response = await axios.put(
-        "https://davaivala.shop/room_detail_update/?roomid=acc06Rm01&field=category&value=" +
+        "https://davaivala.shop/room_detail_update/?roomid=" +
+          props.roomid +
+          "&field=category&value=" +
           furnishingType,
         null,
         {
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + ownerToken,
-            
           },
         }
       );
@@ -170,14 +173,15 @@ export default function EditDrawer() {
     setValidatedAccommodation(true);
     try {
       const response = await axios.put(
-        "https://davaivala.shop/room_detail_update/?roomid=acc06Rm01&field=accomotation_type&value=" +
+        "https://davaivala.shop/room_detail_update/?roomid=" +
+          props.roomid +
+          "&field=accomotation_type&value=" +
           accommodationType,
         null,
         {
           headers: {
             Accept: "application/json",
             Authorization: "Bearer " + ownerToken,
-            
           },
         }
       );
@@ -612,6 +616,9 @@ export default function EditDrawer() {
                   <option value="" disabled>
                     Choose a Accommodation Type
                   </option>
+                  <option value="Single Sharing">Single Sharing</option>
+                  <option value="Double Sharing">Double Shairng</option>
+                  <option value="Triple Sharing">Triple Sharing</option>
                   <option value="1 bhk">1 bhk</option>
                   <option value="2 bhk">2 bhk</option>
                   <option value="3 bhk">3 bhk</option>

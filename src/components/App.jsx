@@ -12,12 +12,12 @@ import RatingAndReview from "./RatingAndReview";
 import AccommodationLists from "./AccommodationLists";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import OwnerBookingSchedules from "./OwnerBookingSchedules";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import CompletePaymentStatus from "./CompletePaytmentStatus";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <NavigationBar />
         <FooterNav />
@@ -45,7 +45,7 @@ function App() {
                 width: "100%",
               }}
             >
-              <ConstructionIcon sx={{fontSize: "5rem", color: "red"}}/>
+              <ConstructionIcon sx={{ fontSize: "5rem", color: "red" }} />
               COMING <span style={{ color: "red" }}>SOON...</span>
             </div>
           }
@@ -58,7 +58,7 @@ function App() {
         <Route path="/ownerpaymentstatus" element={<CompletePaymentStatus />} />
         <Route path="*" element={<MainLandingPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

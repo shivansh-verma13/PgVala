@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button from "react-bootstrap/Button";
+import ButtonReact from "@mui/material/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "@mui/material/Alert";
 import axios from "axios";
@@ -95,7 +96,6 @@ function Register() {
     setValidated(true);
     setDisabledLoader(false);
   }
-
 
   return (
     <div className="register">
@@ -277,7 +277,7 @@ function Register() {
           }}
         >
           <CircularProgress
-          color= "error"
+            color="error"
             sx={{
               display: isDisabledLoader ? "block" : "none",
             }}
@@ -291,6 +291,13 @@ function Register() {
         >
           Register
         </Button>
+        <ButtonReact
+          sx={{ marginTop: "0.5rem", fontWeight: "bold" }}
+          color="success"
+          variant="text"
+        >
+          Already Registerd?
+        </ButtonReact>
       </Form>
     </div>
   );

@@ -184,7 +184,7 @@ function Login() {
             setHidden(false);
           }}
         >
-          Resend OPT?
+          Resend OTP?
         </Button>
         <p style={{ display: isHidden ? "none" : "block" }}>
           *OTP has been resent

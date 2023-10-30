@@ -88,7 +88,6 @@ export default function Booking(props) {
     setHidden(true);
   }
 
-
   if (bookingStatus === "cancelled") {
     return null; // Return null to hide the component when status is "cancelled"
   }
@@ -101,7 +100,7 @@ export default function Booking(props) {
         marginBottom: "-1rem",
         border: "none",
         width: "95%",
-        display: isHidden ? "none" : "blcok",
+        display: bookingStatus === "cancelled" ? "none" : "block",
       }}
     >
       <Card

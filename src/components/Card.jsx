@@ -22,10 +22,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import BathtubIcon from "@mui/icons-material/Bathtub";
 import BedIcon from "@mui/icons-material/Bed";
 import perksIcon from "../assets/images/perks.png";
-import ReviewsIcon from "@mui/icons-material/Reviews";
 import DatePicker from "./DatePicker";
 import TimePicker from "./TimePicker";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -388,19 +386,6 @@ export default function CardView(props) {
             ₹ {props.rentPrice}/{capitalizeFirstLetter(props.rate)}
           </Typography>
         </CardContent>
-        <Link to="/ratingandreview" style={{ textDecoration: "none" }}>
-          <Button
-            variant="outlined"
-            color="error"
-            startIcon={<ReviewsIcon />}
-            sx={{
-              marginLeft: "0.5rem",
-              marginTop: "0.5rem",
-            }}
-          >
-            Reviews
-          </Button>
-        </Link>
         <CardActions disableSpacing>
           <Button
             variant="contained"

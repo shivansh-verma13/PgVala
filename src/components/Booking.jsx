@@ -21,6 +21,9 @@ export default function Booking(props) {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
+  // State to store the booking status (e.g., "cancelled")
+  const [bookingStatus, setBookingStatus] = React.useState("");
+
   function handleLocation() {
     const latitude = props.latitude;
     const longitude = props.longitude;
@@ -29,6 +32,12 @@ export default function Booking(props) {
   }
 
   React.useEffect(() => {
+    const storedStatus = localStorage.getItem(
+      `bookingStatus_${props.entery_id}`
+    );
+    if (storedStatus) {
+      setBookingStatus(storedStatus);
+    }
     function formattedDate() {
       const userDate = new Date(props.date);
       const day = userDate.getDate().toString().padStart(2, "0");
@@ -53,7 +62,7 @@ export default function Booking(props) {
     }
     setFormattedBookingDate(formattedDate());
     setFormattedTime(formatTime());
-  }, [props.date, props.visiting_time]);
+  }, [props.date, props.entery_id, props.visiting_time]);
 
   async function handleCancelVisit() {
     setDisabledLoader(true);
@@ -69,6 +78,8 @@ export default function Booking(props) {
         }
       );
       console.log("API response: ", response.data.status);
+      // Update the booking status in the state
+      setBookingStatus("cancelled");
       navigate("/bookings");
     } catch (error) {
       console.error("Failed to cancel your visit: ", error.message);
@@ -77,7 +88,8 @@ export default function Booking(props) {
     setHidden(true);
   }
 
-  if (props.status === "cancelled") {
+
+  if (bookingStatus === "cancelled") {
     return null; // Return null to hide the component when status is "cancelled"
   }
 

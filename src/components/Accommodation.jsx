@@ -16,8 +16,6 @@ import BedIcon from "@mui/icons-material/Bed";
 import ChairIcon from "@mui/icons-material/Chair";
 import EditDrawer from "./Drawer";
 import axios from "axios";
-import Button from "@mui/material/Button";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { useNavigate } from "react-router-dom";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -26,7 +24,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
-import CreditScoreIcon from "@mui/icons-material/CreditScore";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -38,7 +35,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function AccomodationList(props) {
-  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [rentPrice, setRentPrice] = React.useState(props.rentPrice);
   const [accommodationType, setAccommodationType] = React.useState(
@@ -447,39 +443,6 @@ export default function AccomodationList(props) {
               <Typography>Updating...</Typography>
             </Box>
             <EditDrawer />
-            <Button
-              variant="outlined"
-              color="error"
-              sx={{
-                marginTop: "0.5rem",
-                borderRadius: "15px",
-                fontWeight: "bold",
-                border: "1px solid red",
-                width: "max-content",
-              }}
-              startIcon={<EventAvailableIcon color="error" />}
-              onClick={() => {
-                navigate("/ownerbookingschedule");
-              }}
-            >
-              See Visiters Schedule
-            </Button>
-            <Button
-              variant="contained"
-              color="error"
-              sx={{
-                marginTop: "0.5rem",
-                borderRadius: "15px",
-                fontWeight: "bold",
-                width: "max-content",
-              }}
-              startIcon={<CreditScoreIcon />}
-              onClick={() => {
-                navigate("/ownerpaymentstatus");
-              }}
-            >
-              Payment Status
-            </Button>
           </Box>
         </CardContent>
       </Card>

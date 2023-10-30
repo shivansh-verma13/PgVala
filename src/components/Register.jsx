@@ -293,7 +293,7 @@ function Register() {
         </Button>
       </Form>
       <ButtonReact
-        sx={{ marginTop: "0.5rem" }}
+        sx={{ fontWeight: "ligher" }}
         color="success"
         variant="text"
         onClick={() => {

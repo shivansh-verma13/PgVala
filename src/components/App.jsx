@@ -12,7 +12,6 @@ import RatingAndReview from "./RatingAndReview";
 import AccommodationLists from "./AccommodationLists";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import OwnerBookingSchedules from "./OwnerBookingSchedules";
-import Error from "./Error";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CompletePaymentStatus from "./CompletePaytmentStatus";
 
@@ -25,7 +24,6 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<MainLandingPage />} />
-        <Route index element={<MainLandingPage />} />
         <Route path="/searchedcity" element={<Cards />} />
         <Route path="/bookings" element={<Bookings />} />
         <Route path="/register" element={<Register />} />
@@ -58,7 +56,7 @@ function App() {
           element={<OwnerBookingSchedules />}
         />
         <Route path="/ownerpaymentstatus" element={<CompletePaymentStatus />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<MainLandingPage />} />
       </Routes>
     </BrowserRouter>
   );
